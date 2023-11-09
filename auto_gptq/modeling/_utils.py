@@ -365,7 +365,7 @@ def autogptq_post_init(model, use_act_order: bool, max_input_length: Optional[in
             if hasattr(submodule, "QUANT_TYPE") and submodule.QUANT_TYPE == "exllamav2":
                 device = submodule.qweight.device
                 submodule.post_init(temp_dq = model.device_tensors[device])
-    torch.cuda.empty_cache()
+    #torch.cuda.empty_cache()
 
     return model
 
